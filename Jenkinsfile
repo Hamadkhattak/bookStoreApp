@@ -12,8 +12,8 @@ pipeline {
             steps {
                 sh '''
                     cd /var/lib/jenkins/part2-deployment
-                    sudo docker compose -f docker-compose.part2.yml down
-                    sudo docker compose -f docker-compose.part2.yml up -d
+                     docker compose -f docker-compose.part2.yml down
+                     docker compose -f docker-compose.part2.yml up -d
                 '''
             }
         }
