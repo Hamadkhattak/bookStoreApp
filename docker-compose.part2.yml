@@ -3,7 +3,7 @@ services:
     image: nginx:alpine
     container_name: bookstore-nginx-part2
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./nginx/nginx.part2.conf:/etc/nginx/conf.d/default.conf
     depends_on:
