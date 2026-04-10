@@ -1,0 +1,19 @@
+services:
+  backend-part2:
+    image: hammadkhattak7/bookstore-backend:latest
+    container_name: bookstore-backend-part2
+    ports:
+      - "4002:4001"
+    environment:
+      - MONGODB_URI=mongodb+srv://bookstoreadmin:secretpwd@cluster0.l8rlybk.mongodb.net/bookstore?retryWrites=true&w=majority
+      - PORT=4001
+    restart: unless-stopped
+
+  frontend-part2:
+    image: hammadkhattak7/bookstore-frontend:latest
+    container_name: bookstore-frontend-part2
+    ports:
+      - "5174:5173"
+    depends_on:
+      - backend-part2
+    restart: unless-stopped

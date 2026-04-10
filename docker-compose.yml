@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./Backend
+    container_name: bookstore-backend
+    ports:
+      - "4001:4001"
+    environment:
+      - MONGODB_URI=mongodb+srv://bookstoreadmin:secretpwd@cluster0.l8rlybk.mongodb.net/bookstore?retryWrites=true&w=majority
+      - PORT=4001
+    restart: unless-stopped
+
+  frontend:
+    build: ./Frontend
+    container_name: bookstore-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
